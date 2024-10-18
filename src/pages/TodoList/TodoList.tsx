@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
-import logoImage from "../assets/logo.svg";
+import logoImage from "../../assets/logo.svg";
 import { TODO_LIST } from "./initial-state";
 import { ITodoTypes } from "./types";
 
@@ -27,7 +27,7 @@ const TodoList = () => {
       if (item.id !== id) {
         editedItems.push(item);
       }
-    })
+    });
 
     setItems(editedItems);
   };
@@ -61,7 +61,7 @@ const TodoList = () => {
   return (
     <main id="page" className="todo">
       <div>
-        <img src={logoImage} alt="Cora" title="Cora"></img>
+        <img src={logoImage} alt="Cora" title="Cora" />
         <h1>Weekly to-do list &#128467;</h1>
         <h2>
           Bem-vindo ao nosso produto <i>fake</i> de <strong>to-do</strong> list
@@ -75,7 +75,7 @@ const TodoList = () => {
           o status <strong>done</strong>)
         </p>
         <p className="disclaimer">
-          Items obrigatórios marcados com arteristico (<strong>*</strong>)
+        Items obrigatórios marcados com arteristico (<strong>*</strong>)
         </p>
         <div className="todo__wrapper">
           <form className="todo__search" onSubmit={handleSearch}>
@@ -96,7 +96,7 @@ const TodoList = () => {
             )}
             {items.map((item, i) => {
               return (
-                <li>
+                <li key={i}>
                   <span>
                     {i}
                     {item.required ? "*" : ""}.
@@ -131,7 +131,7 @@ const TodoList = () => {
                         </strong>
                       </button>
                     </div>
-                  <div>
+                  </div>
                 </li>
               );
             })}
@@ -140,6 +140,6 @@ const TodoList = () => {
       </div>
     </main>
   );
-}
+};
 
 export default TodoList;

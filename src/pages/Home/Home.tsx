@@ -1,8 +1,5 @@
-import logoImage from "./assets/logo.svg";
-// import Todo from "./Todo";
-// import { IBanking } from "./IBanking";
-
-import "./App.css";
+import logoImage from "../../assets/logo.svg";
+import "../../App.css";
 
 const Home = () => {
   return (
@@ -32,6 +29,6 @@ const Home = () => {
       </div>
     </main>
   );
-}
+};
 
 export default Home;
