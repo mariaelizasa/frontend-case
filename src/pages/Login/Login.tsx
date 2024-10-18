@@ -3,7 +3,7 @@ import logoFullImage from "../../assets/logo-full.svg";
 import arrowRightImage from "../../assets/arrow-right.svg";
 import "./index.css";
 
-function Login() {
+const Login = () => {
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,4 +40,4 @@ function Login() {
   );
 }
 
-export { Login };
+export default Login;

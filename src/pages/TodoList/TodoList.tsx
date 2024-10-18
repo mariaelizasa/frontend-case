@@ -6,7 +6,7 @@ import { ITodoTypes } from "./types";
 
 import "./index.css";
 
-function Todo() {
+const TodoList = () => {
   const [items, setItems] = useState(TODO_LIST);
   const [searchInputValue, setSearchInputValue] = useState("");
   const [search, setSearch] = useState("");
@@ -142,4 +142,4 @@ function Todo() {
   );
 }
 
-export default Todo;
+export default TodoList;
