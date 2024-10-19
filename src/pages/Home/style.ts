@@ -1,13 +1,7 @@
-#page {
-  --color-main: #fe3e6d;
-  --color-dark-main: #d4265a;
-  --color-white: #ffffff;
-  --color-gray: #6b7076;
-  --color-light-gray: #dfdfdf;
-  --color-lighter-gray: #f0f4f8;
-  --color-error: #ee3636;
-  --color-success: #04aa6d;
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
+const Page = styled.main`
   width: 100%;
   max-width: calc(100% - 50px);
   min-width: 320px;
@@ -20,27 +14,27 @@
   text-align: center;
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
-}
+`;
 
-#page > div > img {
+const Logo = styled.img`
   width: 36px;
   margin-bottom: 25px;
-}
+`;
 
-#page > div > h1 {
+const Title = styled.h1`
   font-size: 5em;
   font-weight: 700;
   line-height: 1.4em;
-}
+`;
 
-#page > div > h2 {
+const Subtitle = styled.h2`
   font-size: 2.6em;
   line-height: 1em;
   font-weight: 400;
-  color: var(--color-main);
-}
+  color: ${(props) => props.theme.colors.main};
+`;
 
-#page > div > p {
+const Description = styled.p`
   width: 100%;
   max-width: 550px;
   display: block;
@@ -49,27 +43,29 @@
   font-size: 1.8em;
   line-height: 1.4em;
   margin: 15px auto;
-  color: var(--color-gray);
-}
+  color: ${(props) => props.theme.colors.gray};
+`;
 
-#page > div > p.disclaimer {
+const Disclaimer = styled(Description)`
   padding: 15px;
   border-radius: 5px;
   max-width: 450px;
   background-color: rgba(0, 0, 0, 0.02);
-  border: 1px solid var(--color-light-gray);
-}
+  border: 1px solid ${(props) => props.theme.colors.lightGray};
+`;
 
-#page .buttons {
+const ButtonsList = styled.ul`
   list-style: none;
   margin-top: 20px;
-}
+`;
 
-#page .buttons li:first-child {
-  margin-bottom: 10px;
-}
+const ButtonItem = styled.li`
+  &:first-child {
+    margin-bottom: 10px;
+  }
+`;
 
-#page .buttons a {
+const ButtonLink = styled(Link)`
   display: inline-block;
   padding: 10px;
   font-size: 1.4em;
@@ -77,6 +73,18 @@
   border-radius: 5px;
   min-width: 200px;
   text-align: center;
-  color: var(--color-main);
-  border: 1px solid var(--color-main);
-}
+  color: ${(props) => props.theme.colors.main};
+  border: 1px solid ${(props) => props.theme.colors.main};
+`;
+
+export {
+  Page,
+  Logo,
+  Title,
+  Subtitle,
+  Description,
+  Disclaimer,
+  ButtonsList,
+  ButtonItem,
+  ButtonLink,
+};
