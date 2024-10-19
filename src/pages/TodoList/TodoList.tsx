@@ -115,7 +115,7 @@ const TodoList = () => {
             {items.map((item, i) => (
               <ListItem key={i}>
                 <ListItemIndex>
-                  {i}
+                  {i + 1}
                   {item.required ? "*" : ""}.
                 </ListItemIndex>
                 <Content>
