@@ -25,15 +25,13 @@ import {
 const TodoList = () => {
   const [items, setItems] = useState(TODO_LIST);
   const [searchInputValue, setSearchInputValue] = useState("");
-  const [search, setSearch] = useState("");
 
-  const handleChange = (event: ChangeEvent<unknown>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInputValue(event.target.value);
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSearch(searchInputValue);
   };
 
   const handleDeleteTask = (id: number) => {
@@ -66,14 +64,6 @@ const TodoList = () => {
     setItems(editedItems);
   };
 
-  useEffect(() => {
-    if (search || items)
-      setItems((currentItems) => [
-        ...currentItems,
-        ...TODO_LIST.filter((item) => item.title.includes(search)),
-      ]);
-  }, [search, items]);
-
   return (
     <main id="page" className="todo">
       <Wrapper>
@@ -81,7 +71,8 @@ const TodoList = () => {
           <img src={logoImage} alt="Cora" title="Cora" />
           <h1>Weekly to-do list &#128467;</h1>
           <h2>
-            Bem-vindo ao nosso produto <i>fake</i> de <strong>to-do</strong> list
+            Bem-vindo ao nosso produto <i>fake</i> de <strong>to-do</strong>{" "}
+            list
           </h2>
           <p>
             Marque como{" "}
