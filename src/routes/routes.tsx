@@ -11,7 +11,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/todo-list" element={<TodoList />} />
         <Route path="/login" element={<Login />} /> 
-        <Route path="/ibaking" element={<IBanking />} /> 
+        <Route path="/ibanking" element={<IBanking />} /> 
       </Routes>
     </BrowserRouter>
   );

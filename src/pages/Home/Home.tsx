@@ -1,5 +1,4 @@
 import logoImage from "../../assets/logo.svg";
-import "../../App.css";
 import {
   ButtonItem,
   ButtonLink,
