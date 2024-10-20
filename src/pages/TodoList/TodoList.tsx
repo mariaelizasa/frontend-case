@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent, useCallback, useMemo } from "react";
 
 import logoImage from "../../assets/logo.svg";
 import { TODO_LIST } from "./initial-state";
@@ -26,6 +26,12 @@ const TodoList = () => {
   const [items, setItems] = useState(TODO_LIST);
   const [searchInputValue, setSearchInputValue] = useState("");
 
+  const filteredTasks = useMemo(() => {
+    return items.filter((task) =>
+      task.title.toLowerCase().includes(searchInputValue.toLowerCase())
+    );
+  }, [searchInputValue]);
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInputValue(event.target.value);
   };
@@ -34,16 +40,8 @@ const TodoList = () => {
     event.preventDefault();
   };
 
-  const handleDeleteTask = (id: number) => {
-    const editedItems = [];
-
-    items.map((item) => {
-      if (item.id !== id) {
-        editedItems.push(item);
-      }
-    });
-
-    setItems(editedItems);
+  const handleDeleteTask = (id: string) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   const handleChangeTaskStatus = (id: string, status: ITodoTypes) => {
@@ -103,7 +101,7 @@ const TodoList = () => {
                 &#128533;
               </ListEmptyMessage>
             )}
-            {items.map((item, i) => (
+            {filteredTasks.map((item, i) => (
               <ListItem key={i}>
                 <ListItemIndex>
                   {i + 1}
