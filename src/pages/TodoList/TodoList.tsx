@@ -39,13 +39,13 @@ const TodoList = () => {
   };
 
   const handleChangeTaskStatus = (id: string, status: TodoStatusType) => {
-    const reversedStatus = status === "pending" ? "done" : "pending";
+    const changedTaskStatus = status === "pending" ? "done" : "pending";
 
-    const editedItems: TodoListType[] = tasks.map((task) =>
-      task.id === id ? { ...task, status: reversedStatus } : task
+    const editedTaskStatus: TodoListType[] = tasks.map((task) =>
+      task.id === id ? { ...task, status: changedTaskStatus } : task
     );
 
-    setTasks(editedItems);
+    setTasks(editedTaskStatus);
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
