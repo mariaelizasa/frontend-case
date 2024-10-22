@@ -1,8 +1,6 @@
-import { useState, useEffect, ChangeEvent, useCallback, useMemo } from "react";
-
+import { useState, useMemo, ChangeEvent } from "react";
 import logoImage from "../../assets/logo.svg";
 import { TODO_LIST } from "./initial-state";
-import { ITodoTypes } from "./types";
 import {
   ButtonItem,
   ButtonsList,
@@ -21,16 +19,34 @@ import {
   Title,
   Wrapper,
 } from "./style";
+import { TodoListType, TodoStatusType } from "../../@types/TodoList";
 
 const TodoList = () => {
-  const [items, setItems] = useState(TODO_LIST);
+  const [tasks, setTasks] = useState<TodoListType[]>(TODO_LIST);
+
+  // Add integration with backend to render with done status.
+
   const [searchInputValue, setSearchInputValue] = useState("");
 
   const filteredTasks = useMemo(() => {
-    return items.filter((task) =>
+    return tasks.filter((task) =>
       task.title.toLowerCase().includes(searchInputValue.toLowerCase())
     );
-  }, [searchInputValue]);
+  }, [tasks, searchInputValue]);
+
+  const handleDeleteTask = (id: string) => {
+    setTasks((prevTaks) => prevTaks.filter((task) => task.id !== id));
+  };
+
+  const handleChangeTaskStatus = (id: string, status: TodoStatusType) => {
+    const reversedStatus = status === "pending" ? "done" : "pending";
+
+    const editedItems: TodoListType[] = tasks.map((task) =>
+      task.id === id ? { ...task, status: reversedStatus } : task
+    );
+
+    setTasks(editedItems);
+  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInputValue(event.target.value);
@@ -38,28 +54,6 @@ const TodoList = () => {
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-  };
-
-  const handleDeleteTask = (id: string) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-
-  const handleChangeTaskStatus = (id: string, status: ITodoTypes) => {
-    const reversedStatus = status === "pending" ? "pending" : "done";
-    const editedItems = [];
-
-    for (let i = 0; i < items.length; i++) {
-      if (items[i].id === id) {
-        editedItems.push({
-          ...items[i],
-          status: reversedStatus,
-        });
-      } else {
-        editedItems.push(items[i]);
-      }
-    }
-
-    setItems(editedItems);
   };
 
   return (
@@ -95,14 +89,14 @@ const TodoList = () => {
         </header>
         <section>
           <List>
-            {items.length === 0 && (
+            {tasks.length === 0 && (
               <ListEmptyMessage>
                 <strong>Ops!!!</strong> Nenhum resultado foi encontrado
                 &#128533;
               </ListEmptyMessage>
             )}
             {filteredTasks.map((item, i) => (
-              <ListItem key={i}>
+              <ListItem key={item.id}>
                 <ListItemIndex>
                   {i + 1}
                   {item.required ? "*" : ""}.
