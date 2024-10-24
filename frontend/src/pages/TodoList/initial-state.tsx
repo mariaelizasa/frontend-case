@@ -170,4 +170,28 @@ export const TODO_LIST: TodoListType[] = [
     status: "pending",
     required: false,
   },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7g",
+    ref: "8",
+    title: "Adicione integração com back-end para renderizar com status concluído.",
+    description: (
+      <>
+        
+      </>
+    ),
+    status: "pending",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7h",
+    ref: "9",
+    title: "Adicionar ContextAPI",
+    description: (
+      <>
+        Utilizar gerenciamento de estado usando ContextApi
+      </>
+    ),
+    status: "pending",
+    required: false,
+  },
 ];

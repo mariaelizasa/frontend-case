@@ -12,7 +12,7 @@ const Main = styled.main`
   max-width: 674px;
   margin: 0 auto;
   padding: 97px 87px 87px;
-  border-radius: 0 0 16px 16px;
+  border-radius: 16px;
   background-color: ${(props) => props.theme.colors.darkMain};
   position: absolute;
 `;
