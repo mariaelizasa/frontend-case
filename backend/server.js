@@ -14,7 +14,7 @@ app.get("/health-check", (_, res) => {
   return res.sendStatus(200);
 });
 
-app.use("/list", transactionRoutes);
+app.use("/transactions", transactionRoutes);
 
 app.listen(port, () => {
   console.log(`[api] running on port \`${port}\``);

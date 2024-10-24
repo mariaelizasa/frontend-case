@@ -9,7 +9,8 @@ export const Auth = async (
     const response = await api.post(`auth`, { cpf, password });
 
     const { token } = response.data;
-    api.defaults.headers.common['Authorization'] = `${token}`;
+    api.defaults.headers['token-access'] = token;
+    
     localStorage.setItem("token", token);
 
     return { token, cpf, password };
