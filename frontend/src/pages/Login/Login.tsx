@@ -3,10 +3,14 @@ import logoFullImage from "../../assets/logo-full.svg";
 import arrowRightImage from "../../assets/arrow-right.svg";
 import "./style.ts";
 import { AppContainer, Button, Input, Main, Title } from "./style";
+import { useAuth } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
+  const { makeLogin, error, token } = useAuth();
+  const navigate = useNavigate();
 
   const handleChangeCPF = (e: ChangeEvent<HTMLInputElement>) => {
     setCpf(e.target.value);
@@ -16,11 +20,11 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleAuth = () => {
-    console.log({
-      cpf,
-      password,
-    });
+  const handleAuth = async () => {
+    await makeLogin(cpf, password);
+    if (token) {
+      navigate("/transactions");
+    }
   };
 
   return (
@@ -39,6 +43,7 @@ const Login = () => {
           type="password"
           onChange={handleChangePassword}
         />
+        {error && <p style={{ color: "white" }}>{error}</p>}
         <Button onClick={handleAuth}>
           Continuar
           <img src={arrowRightImage} alt="Seta para continuar" />
