@@ -3,8 +3,8 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fa8e53a9-a75b-4ffe-a282-30221b81f40d" alt="App Screenshot 2" width="600">
-  <img src="https://github.com/user-attachments/assets/1773a14d-8056-4db7-a919-d606687563de" alt="App Screenshot" width="600">
+  <img src="https://github.com/user-attachments/assets/58c1e3dc-bce7-4f9b-96fd-08b48817dbf5" alt="App Screenshot 2" width="600">
+  <img src="https://github.com/user-attachments/assets/0ae68827-7b1f-4fe3-a3c8-a717c6e3d65b" alt="App Screenshot" width="600">
 </p>
 
 ---
@@ -104,4 +104,4 @@ npm start
 4. Push to the branch (`git push origin feature/fooBar`
 5. Create a new Pull Request
 
-<p align="center">💡 Vamos construir juntos! / Let's build together! 💡</p> ```
+<p align="center">💡 Vamos construir juntos! / Let's build together! 💡</p> 
