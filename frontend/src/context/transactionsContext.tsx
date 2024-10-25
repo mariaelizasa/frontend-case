@@ -7,6 +7,7 @@ import {
 } from "react";
 import { TransactionsType } from "../@types/Transactions";
 import { getAllTransactions } from "../services/transactions/transactionsService";
+import { useAuth } from "./authContext";
 
 interface TransactionsContextProps {
   transactions: TransactionsType | null;
@@ -21,6 +22,8 @@ export const TransactionsProvider = ({ children }: { children: ReactNode }) => {
   const [transactions, setTransactions] = useState<TransactionsType | null>(
     null
   );
+  const { token } = useAuth();
+
   const fetchTransactions = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -39,7 +42,7 @@ export const TransactionsProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [token]);
 
   return (
     <TransactionsContext.Provider value={{ transactions, fetchTransactions }}>

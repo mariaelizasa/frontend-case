@@ -18,27 +18,22 @@ import {
 import { useState } from "react";
 import {
   BaseTransactionType,
-  TransactionGroupType,
 } from "../../@types/Transactions";
+import Header from "../../components/Header/Header";
+import {
+  calculateUpdatedBalance,
+  getFilteredItems,
+} from "../../utils/transactions";
 
 const Transactions = () => {
   const { transactions } = useTransactions();
   const [filter, setFilter] = useState<"ALL" | "CREDIT" | "DEBIT">("ALL");
-  const initialBalance = 378008;
-
-  const getFilteredItems = (transactionGroup: TransactionGroupType) => {
-    if (filter === "ALL") {
-      return transactionGroup.items;
-    }
-    return transactionGroup.items.filter(
-      (item: BaseTransactionType) => item.entry === filter
-    );
-  };
 
   return (
-    <Container>
-      <Table>
-        <>
+    <>
+      <Header />
+      <Container>
+        <Table>
           <Button
             active={filter === "DEBIT"}
             onClick={() => setFilter("DEBIT")}
@@ -51,70 +46,70 @@ const Transactions = () => {
           >
             Crédito
           </Button>
-        </>
-        {transactions?.results.map((transactionGroup) => {
-          const filteredItems = getFilteredItems(transactionGroup);
 
-          let updatedBalance = initialBalance;
-          filteredItems.forEach((item: BaseTransactionType) => {
-            if (item.entry === "DEBIT") {
-              updatedBalance -= item.amount;
-            } else if (item.entry === "CREDIT") {
-              updatedBalance += item.amount;
-            }
-          });
+          {transactions?.results.map((transactionGroup) => {
+            const filteredItems = getFilteredItems(transactionGroup, filter);
 
-          if (filteredItems.length === 0) return null;
+            if (filteredItems.length === 0) return null;
 
-          return (
-            <DateSection key={transactionGroup.date}>
-              <AmountGroup>
-                <p>
-                  {new Date(transactionGroup.date).toLocaleDateString("pt-BR", {
-                    day: "2-digit",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <BalanceDay>
-                  Saldo do dia:{" "}
-                  <strong>R${(updatedBalance / 100).toFixed(2)}</strong>
-                </BalanceDay>
-              </AmountGroup>
+            const updatedBalance = calculateUpdatedBalance(filteredItems);
 
-              {filteredItems.map((item: BaseTransactionType) => (
-                <TransactionCard key={item.id}>
-                  <TransactionName entry={item.entry}>
-                    {item.entry === "CREDIT" ? (
-                      <Icon src={arrowUpIn} alt="Arrow Up In" />
-                    ) : (
-                      <Icon src={arrowUpOut} alt="Arrow Up Out" />
-                    )}
-                    {item.name}
-                  </TransactionName>
-                  <TransactionLabel>{item.label}</TransactionLabel>
-                  <TransactionDate>
-                    {new Date(item.dateEvent)
-                      .toLocaleString("pt-BR", {
+            return (
+              <DateSection key={transactionGroup.date}>
+                <AmountGroup>
+                  <p>
+                    {new Date(transactionGroup.date).toLocaleDateString(
+                      "pt-BR",
+                      {
                         day: "2-digit",
-                        month: "short",
+                        month: "long",
                         year: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })
-                      .replace(",", " -")}
-                  </TransactionDate>
-                  <Amount entry={item.entry}>
-                    {item.entry === "CREDIT" ? "+" : "-"} R${" "}
-                    {(item.amount / 100).toFixed(2)}
-                  </Amount>
-                </TransactionCard>
-              ))}
-            </DateSection>
-          );
-        })}
-      </Table>
-    </Container>
+                      }
+                    )}
+                  </p>
+                  <BalanceDay>
+                    Saldo do dia:{" "}
+                    <strong>R${(updatedBalance / 100).toFixed(2)}</strong>
+                  </BalanceDay>
+                </AmountGroup>
+
+                {filteredItems.map((item: BaseTransactionType) => (
+                  <TransactionCard key={item.id}>
+                    <TransactionName entry={item.entry}>
+                      <Icon
+                        src={item.entry === "CREDIT" ? arrowUpIn : arrowUpOut}
+                        alt={
+                          item.entry === "CREDIT"
+                            ? "Arrow Up In"
+                            : "Arrow Up Out"
+                        }
+                      />
+                      {item.name}
+                    </TransactionName>
+                    <TransactionLabel>{item.label}</TransactionLabel>
+                    <TransactionDate>
+                      {new Date(item.dateEvent)
+                        .toLocaleString("pt-BR", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })
+                        .replace(",", " -")}
+                    </TransactionDate>
+                    <Amount entry={item.entry}>
+                      {item.entry === "CREDIT" ? "+" : "-"} R${" "}
+                      {(item.amount / 100).toFixed(2)}
+                    </Amount>
+                  </TransactionCard>
+                ))}
+              </DateSection>
+            );
+          })}
+        </Table>
+      </Container>
+    </>
   );
 };
 

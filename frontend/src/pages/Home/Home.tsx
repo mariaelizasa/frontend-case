@@ -1,4 +1,5 @@
 import logoImage from "../../assets/logo.svg";
+import Header from "../../components/Header/Header";
 import {
   ButtonItem,
   ButtonLink,
@@ -14,6 +15,7 @@ import {
 const Home = () => {
   return (
     <Page>
+      <Header></Header>
       <div>
         <header>
           <Logo src={logoImage} alt="Cora" title="Cora" />
@@ -39,7 +41,7 @@ const Home = () => {
               <ButtonLink to="/todo-list">TO-DO LIST</ButtonLink>
             </ButtonItem>
             <ButtonItem>
-              <ButtonLink to="/ibanking">IBANKING</ButtonLink>
+              <ButtonLink to="/login">IBANKING</ButtonLink>
             </ButtonItem>
           </ButtonsList>
         </footer>
