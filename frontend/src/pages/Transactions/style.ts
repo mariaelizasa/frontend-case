@@ -10,12 +10,17 @@ const Container = styled.div`
   align-items: center;
   height: 100vh;
   padding: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    padding: 120px 0px;
+  }
 `;
 
-
 const Button = styled.button.withConfig({
-    shouldForwardProp: (prop) => prop !== 'active', 
-  })<{ active: boolean }>`
+  shouldForwardProp: (prop) => prop !== "active",
+})<{ active: boolean }>`
   width: 82px;
   border-radius: 32px;
   padding: 4px;
@@ -23,13 +28,19 @@ const Button = styled.button.withConfig({
   color: ${(props) => props.theme.colors.lightGray};
   background-color: ${(props) =>
     props.active ? props.theme.colors.black : props.theme.colors.white};
-  color: ${(props) => (props.active ? props.theme.colors.white :  props.theme.colors.black)};
+  color: ${(props) =>
+    props.active ? props.theme.colors.white : props.theme.colors.black};
   margin: 0 5px 40px 0;
 `;
 
 const Table = styled.div`
   width: 1032px;
   border-collapse: collapse;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 10px;
+  }
 `;
 
 const DateSection = styled.div`
@@ -38,6 +49,7 @@ const DateSection = styled.div`
   font-size: 12px;
   line-height: 20px;
 `;
+
 const AmountGroup = styled.div`
   display: flex;
   justify-content: space-between;
@@ -55,12 +67,22 @@ const TransactionCard = styled.div`
   border-radius: 8px;
   padding: 30px;
   margin-top: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
 `;
 
 const Icon = styled.img`
   width: 20px;
   height: 20px;
   margin-right: 25px;
+
+  @media (max-width: 768px) {
+    margin-right: 10px;
+  }
 `;
 
 const TransactionName = styled.div<entryProps>`
@@ -112,5 +134,4 @@ export {
   AmountGroup,
   BalanceDay,
   Button,
-  
 };

@@ -242,7 +242,7 @@ export const TODO_LIST: TodoListType[] = [
     ref: "15",
     title: "Tornar a página de Transactions responsiva",
     description: <></>,
-    status: "pending",
+    status: "done",
     required: false,
   },
 ];
