@@ -20,11 +20,10 @@ import {
   Wrapper,
 } from "./style";
 import { TodoListType, TodoStatusType } from "../../@types/TodoList";
+import Header from "../../components/Header/Header";
 
 const TodoList = () => {
   const [tasks, setTasks] = useState<TodoListType[]>(TODO_LIST);
-
-  // Add integration with backend to render with done status.
 
   const [searchInputValue, setSearchInputValue] = useState("");
 
@@ -58,6 +57,7 @@ const TodoList = () => {
 
   return (
     <main id="page" className="todo">
+      <Header></Header>
       <Wrapper>
         <header>
           <img src={logoImage} alt="Cora" title="Cora" />

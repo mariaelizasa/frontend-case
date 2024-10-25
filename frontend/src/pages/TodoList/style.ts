@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   max-width: 750px;
-  margin: 20px auto 0;
+  margin: 150px auto 0;
 `;
 
 const Search = styled.form`

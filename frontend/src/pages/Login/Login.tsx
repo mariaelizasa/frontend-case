@@ -5,6 +5,7 @@ import "./style.ts";
 import { AppContainer, Button, Input, Main, Title } from "./style";
 import { useAuth } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header.tsx";
 
 const Login = () => {
   const [cpf, setCpf] = useState("");
@@ -28,28 +29,31 @@ const Login = () => {
   };
 
   return (
-    <AppContainer>
-      <Main id="login">
-        <img src={logoFullImage} alt="Cora" title="Cora" />
-        <Title>Fazer LogIn</Title>
-        <Input
-          id="cpf"
-          placeholder="Insira seu e-mail ou CPF"
-          onChange={handleChangeCPF}
-        />
-        <Input
-          id="password"
-          placeholder="Digite sua senha"
-          type="password"
-          onChange={handleChangePassword}
-        />
-        {error && <p style={{ color: "white" }}>{error}</p>}
-        <Button onClick={handleAuth}>
-          Continuar
-          <img src={arrowRightImage} alt="Seta para continuar" />
-        </Button>
-      </Main>
-    </AppContainer>
+    <>
+      <Header></Header>
+      <AppContainer>
+        <Main id="login">
+          <img src={logoFullImage} alt="Cora" title="Cora" />
+          <Title>Fazer LogIn</Title>
+          <Input
+            id="cpf"
+            placeholder="Insira seu e-mail ou CPF"
+            onChange={handleChangeCPF}
+          />
+          <Input
+            id="password"
+            placeholder="Digite sua senha"
+            type="password"
+            onChange={handleChangePassword}
+          />
+          {error && <p style={{ color: "white" }}>{error}</p>}
+          <Button onClick={handleAuth}>
+            Continuar
+            <img src={arrowRightImage} alt="Seta para continuar" />
+          </Button>
+        </Main>
+      </AppContainer>
+    </>
   );
 };
 

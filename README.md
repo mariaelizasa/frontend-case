@@ -68,7 +68,9 @@ npm start
 │       │   └── Transactions.ts 🌐
 │       ├── components 📁
 │       │   └── routes 📁
-│       │       └── privateRoutesService.ts 🌐
+│       │       └── privateRoutesService.tsx 🌐
+│       │   └── Header 📁
+│       │       └── Header.tsx 🌐
 │       ├── context 📁
 │       │   ├── AuthContext.ts 🌐
 │       │   └── TransactionsContext.ts 🌐
@@ -88,6 +90,8 @@ npm start
 │       ├── styles 📁
 │       │   ├── global.ts 🌐
 │       │   └── variables.ts 🌐
+│       ├── utils 📁
+│       │   ├── transactions.ts 🌐
 │       ├── App.tsx 🌐
 │       └── main.tsx 🌐
 ```
