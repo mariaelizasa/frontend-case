@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Avenir', sans-serif;
 }
 
- 
 html, body {
   height: 100%;
 }

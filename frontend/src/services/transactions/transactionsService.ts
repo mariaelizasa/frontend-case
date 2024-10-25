@@ -1,4 +1,3 @@
-
 import { TransactionsType } from "../../@types/Transactions";
 import api from "../api";
 
@@ -8,7 +7,7 @@ export const getAllTransactions = async (
   try {
     const response = await api.get<TransactionsType>("transactions", {
       headers: {
-      'token-access': token
+        "token-access": token,
       },
     });
     return response.data;

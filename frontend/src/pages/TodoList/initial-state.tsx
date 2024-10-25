@@ -16,7 +16,7 @@ export const TODO_LIST: TodoListType[] = [
         correta de tasks? Parabéns, você finalizou a sua primeira task &#127881;
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
   },
   {
@@ -41,7 +41,7 @@ export const TODO_LIST: TodoListType[] = [
         5. Alguns links não estão funcionando.
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
   },
   {
@@ -54,7 +54,7 @@ export const TODO_LIST: TodoListType[] = [
         alguma coisa errada com o CSS dessa página :/
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -77,7 +77,7 @@ export const TODO_LIST: TodoListType[] = [
         <strong>Info:</strong> Sinta-se livre para fazer melhorias :)
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -100,7 +100,7 @@ export const TODO_LIST: TodoListType[] = [
         <br />O contrato esta no <strong>README.md</strong> do projeto.
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -132,7 +132,7 @@ export const TODO_LIST: TodoListType[] = [
         <strong>CREDIT</strong>, dentro do response retornado pela api.
       </>
     ),
-    status: "pending",
+    status: "done",
     required: true,
     links: [
       {
@@ -167,18 +167,15 @@ export const TODO_LIST: TodoListType[] = [
         ObrigadaUm &#128640;
       </>
     ),
-    status: "pending",
+    status: "done",
     required: false,
   },
   {
     id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7g",
     ref: "8",
-    title: "Adicione integração com back-end para renderizar com status concluído.",
-    description: (
-      <>
-        
-      </>
-    ),
+    title:
+      "Criar endpoint de Todo-List para permitir listagem/adição de tarefas",
+    description: <></>,
     status: "pending",
     required: false,
   },
@@ -186,11 +183,65 @@ export const TODO_LIST: TodoListType[] = [
     id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7h",
     ref: "9",
     title: "Adicionar ContextAPI",
+    description: <>Utilizar gerenciamento de estado usando ContextAPI</>,
+    status: "done",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7j",
+    ref: "10",
+    title: "Criar testes unitários utilizando React Testing Library",
     description: (
-      <>
-        Utilizar gerenciamento de estado usando ContextApi
-      </>
+      <>Realizar testes unitários para garantir a eficiência dos componentes.</>
     ),
+    status: "pending",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7j",
+    ref: "11",
+    title: "Refatorar página de Transactions",
+    description: <>Atuar nas funções e renderizações</>,
+    status: "pending",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7k",
+    ref: "12",
+    title: "Adicionar biblioteca JWT no backend",
+    description: <>Incluir token JWT na integração com backend</>,
+    status: "pending",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7l",
+    ref: "13",
+    title: "Atuar na estilização da página Todo-List",
+    description: <>Modificar estilização</>,
+    status: "pending",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7n",
+    ref: "14",
+    title: "Adicionar funcionalidade de Logout",
+    description: <></>,
+    status: "pending",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7o",
+    ref: "15",
+    title: "Criar Readme com informações do projeto",
+    description: <></>,
+    status: "pending",
+    required: false,
+  },
+  {
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7o",
+    ref: "15",
+    title: "Adicionar Typescript no backend",
+    description: <></>,
     status: "pending",
     required: false,
   },
