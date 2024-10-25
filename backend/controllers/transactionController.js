@@ -1,6 +1,6 @@
 const db = require("../db/transactions.json");
 
-const listTransactions = (req, res) => {
+const listTransactions = (_, res) => {
   return res.json(db);
 };
 

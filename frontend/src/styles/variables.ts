@@ -8,6 +8,9 @@ const theme = {
       lighterGray: '#f0f4f8',
       error: '#ee3636',
       success: '#04aa6d',
+      paymentReceived: '#1a93da',
+      black: '#3b3b3b'
+
     },
   };
   
