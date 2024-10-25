@@ -4,6 +4,7 @@ import { Auth } from "../services/auth/authService";
 interface AuthContextProps {
   token: string | null;
   makeLogin: (cpf: string, password: string) => void;
+  logout: () => void;
   error: string | null;
 }
 
@@ -12,7 +13,9 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [token, setToken] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(
+    localStorage.getItem("token")
+  );
   const [error, setError] = useState<string | null>(null);
 
   const makeLogin = (cpf: string, password: string) => {
@@ -30,8 +33,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       });
   };
 
+  const logout = () => {
+    setToken(null);
+    localStorage.removeItem("token");
+  };
+
   return (
-    <AuthContext.Provider value={{ token, makeLogin, error }}>
+    <AuthContext.Provider value={{ token, makeLogin, logout, error }}>
       {children}
     </AuthContext.Provider>
   );

@@ -198,7 +198,7 @@ export const TODO_LIST: TodoListType[] = [
     required: false,
   },
   {
-    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7j",
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7p",
     ref: "11",
     title: "Refatorar página de Transactions",
     description: <>Atuar nas funções e renderizações</>,
@@ -210,7 +210,7 @@ export const TODO_LIST: TodoListType[] = [
     ref: "12",
     title: "Adicionar biblioteca JWT no backend",
     description: <>Incluir token JWT na integração com backend</>,
-    status: "pending",
+    status: "done",
     required: false,
   },
   {
@@ -234,11 +234,11 @@ export const TODO_LIST: TodoListType[] = [
     ref: "15",
     title: "Criar Readme com informações do projeto",
     description: <></>,
-    status: "pending",
+    status: "done",
     required: false,
   },
   {
-    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7o",
+    id: "be4f2532-aca4-46c8-84b8-c9fe41d7fb7z",
     ref: "15",
     title: "Adicionar Typescript no backend",
     description: <></>,

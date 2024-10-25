@@ -30,7 +30,15 @@ Execute o frontend / Execute the frontend:
 npm run dev
 ```
 
-Execute o frontend / Execute the backend:
+Crie um arquivo .env na pasta de backend e adicione sua secret key do JWT e a porta que irá rodar seu projeto como variável de ambiente no seguinte formato / Create a .env file in the backend folder and add your JWT secret key and the port that will run your project as an environment variable in the following format.
+
+```sh
+Create .env
+PORT=3000
+JWT_SECRET=sua-chave-secreta
+```
+
+Execute o backend / Execute the backend:
 
 ```sh
 npm start
