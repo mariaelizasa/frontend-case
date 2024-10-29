@@ -16,9 +16,7 @@ import {
   TransactionName,
 } from "./style";
 import { useState } from "react";
-import {
-  BaseTransactionType,
-} from "../../@types/Transactions";
+import { BaseTransactionType } from "../../@types/Transactions";
 import Header from "../../components/Header/Header";
 import {
   calculateUpdatedBalance,
@@ -58,7 +56,7 @@ const Transactions = () => {
               <DateSection key={transactionGroup.date}>
                 <AmountGroup>
                   <p>
-                    {new Date(transactionGroup.date).toLocaleDateString(
+                    {new Date(`${transactionGroup.date}T00:00:00`).toLocaleDateString(
                       "pt-BR",
                       {
                         day: "2-digit",
